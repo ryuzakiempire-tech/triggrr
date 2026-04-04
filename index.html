@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIGGRR — Professional AI Automation Tools</title>
+    <meta name="description" content="Premium OpenClaw security tools, automation workflows, and AI productivity solutions for professionals and businesses.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --purple: #6B46C1;
+            --blue: #4299E1;
+            --gradient: linear-gradient(135deg, #6B46C1 0%, #4299E1 100%);
+            --dark: #1A202C;
+            --light: #F7FAFC;
+            --gray: #718096;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--purple);
+        }
+        
+        .nav-cta {
+            background: var(--gradient);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(107, 70, 193, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 2px solid var(--gray);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--purple);
+            color: var(--purple);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        
+        .product-card.featured {
+            border: 3px solid var(--purple);
+        }
+        
+        .product-card.featured::before {
+            content: "⭐ Best Value";
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .product-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .product-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--purple);
+            margin: 20px 0;
+        }
+        
+        .product-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--gray);
+        }
+        
+        .product-card .description {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light);
+            color: var(--dark);
+        }
+        
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .features-list li::before {
+            content: "✓";
+            color: #48BB78;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .product-card .btn {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item p {
+            color: var(--gray);
+        }
+        
+        /* Testimonial/Trust Section */
+        .trust {
+            padding: 80px 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .trust h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .trust p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-placeholder">🦎</div>
+                TRIGGRR
+            </a>
+            <div class="nav-links">
+                <a href="#products">Products</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#support">Support</a>
+            </div>
+            <a href="#products" class="nav-cta">Shop Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Professional AI Automation Tools</h1>
+            <p>Premium OpenClaw security solutions, workflow templates, and productivity tools for professionals and businesses.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Browse Products →</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Professional-grade tools to secure and automate your AI workflows</p>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1: Security Vault -->
+                <div class="product-card featured">
+                    <div class="product-icon">🛡️</div>
+                    <h3>OpenClaw Security Vault</h3>
+                    <div class="price">€39 <span>one-time</span></div>
+                    <p class="description">
+                        Enterprise-grade security hardening for OpenClaw. Deploy with confidence using our professional security templates and audit checklists.
+                    </p>
+                    <ul class="features-list">
+                        <li>Pre-hardened configuration templates</li>
+                        <li>65-point security audit checklist</li>
+                        <li>One-command deployment script</li>
+                        <li>Incident response guide</li>
+                        <li>Lifetime updates</li>
+                        <li>Email support (48h response)</li>
+                    </ul>
+                    <a href="YOUR_GUMROAD_LINK_HERE" class="btn btn-primary" target="_blank">Buy Now →</a>
+                </div>
+
+                <!-- Product 2: Workflow Templates -->
+                <div class="product-card">
+                    <div class="product-icon">⚙️</div>
+                    <h3>AI Automation Workflow Templates</h3>
+                    <div class="price">€49 <span>one-time</span></div>
+                    <p class="description">
+                        10 ready-to-use automation workflows. Save hours of setup time with pre-built templates for common business tasks.
+                    </p>
+                    <ul class="features-list">
+                        <li>10 pre-built workflow configurations</li>
+                        <li>Email triage automation</li>
+                        <li>Content repurposing workflows</li>
+                        <li>Lead research templates</li>
+                        <li>Installation guides + videos</li>
+                        <li>ROI calculator included</li>
+                    </ul>
+                    <a href="YOUR_GUMROAD_LINK_HERE" class="btn btn-primary" target="_blank">Buy Now →</a>
+                </div>
+
+                <!-- Product 3: Summarize Pro -->
+                <div class="product-card">
+                    <div class="product-icon">📝</div>
+                    <h3>Summarize Pro Premium</h3>
+                    <div class="price">€19 <span>one-time</span></div>
+                    <p class="description">
+                        Advanced AI summarization with 20+ formats. Perfect for researchers, students, and professionals processing large documents.
+                    </p>
+                    <ul class="features-list">
+                        <li>20+ summary formats (TL;DR, bullets, executive)</li>
+                        <li>Multi-language support (10+ languages)</li>
+                        <li>Meeting notes & email digest formats</li>
+                        <li>Custom templates</li>
+                        <li>Priority support</li>
+                        <li>Lifetime updates</li>
+                    </ul>
+                    <a href="YOUR_GUMROAD_LINK_HERE" class="btn btn-primary" target="_blank">Buy Now →</a>
+                </div>
+
+                <!-- Product 4: Complete Bundle -->
+                <div class="product-card featured">
+                    <div class="product-icon">🎁</div>
+                    <h3>TRIGGRR Complete Pack</h3>
+                    <div class="price">€99 <span>one-time</span></div>
+                    <p class="description">
+                        Everything you need. All 3 products bundled together at a special discount. Maximum value, maximum automation.
+                    </p>
+                    <ul class="features-list">
+                        <li>✓ OpenClaw Security Vault (€39)</li>
+                        <li>✓ AI Workflow Templates (€49)</li>
+                        <li>✓ Summarize Pro Premium (€19)</li>
+                        <li>💰 Save €38 with bundle pricing</li>
+                        <li>Priority email support</li>
+                        <li>Early access to new products</li>
+                    </ul>
+                    <a href="YOUR_GUMROAD_LINK_HERE" class="btn btn-primary" target="_blank">Get Bundle →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose TRIGGRR?</h2>
+                <p>Professional tools built by experts, trusted by professionals</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Security First</h3>
+                    <p>Every product is built with security as the foundation, not an afterthought. Sleep soundly knowing your AI is protected.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Delivery</h3>
+                    <p>Digital products delivered immediately after purchase. Start automating within minutes, not days.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Lifetime Updates</h3>
+                    <p>Pay once, get updates forever. All future improvements and new versions included at no extra cost.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">📧</div>
+                    <h3>Email Support</h3>
+                    <p>Stuck? We're here to help. 48-hour response time on all support requests.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Money-Back Guarantee</h3>
+                    <p>Not satisfied? Get a full refund within 7 days. No questions asked.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🦎</div>
+                    <h3>OpenClaw Experts</h3>
+                    <p>We live and breathe OpenClaw. Our tools are battle-tested in production environments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust">
+        <div class="container">
+            <h2>Ready to Automate Like a Pro?</h2>
+            <p>Join professionals and businesses using TRIGGRR tools to secure and scale their AI operations.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>TRIGGRR</h4>
+                    <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">
+                        Professional AI automation tools for OpenClaw. Security, workflows, and productivity solutions.
+                    </p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#products">Security Vault</a></li>
+                        <li><a href="#products">Workflow Templates</a></li>
+                        <li><a href="#products">Summarize Pro</a></li>
+                        <li><a href="#products">Complete Bundle</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="mailto:support@trigggr.com">Email Support</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About TRIGGRR</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 TRIGGRR. All rights reserved. | Powered by OpenClaw 🦞</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
